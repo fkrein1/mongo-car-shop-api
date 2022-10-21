@@ -8,7 +8,7 @@ import MotorcycleController from '../../../controllers/Motorcycle';
 import CarService from '../../../services/Car';
 import MotorcycleService from '../../../services/Motorcycle';
 
-import { car, cars, newCar, updateCarBody, validCarId } from '../carMocks';
+import { car, cars, newCar, updateCarRequest, validCarId } from '../carMocks';
 import { motorcycle, motorcycles, newMotorcycle, updatemotorcycleBody, validMotorcycleId } from '../motorcycleMocks';
 
 
@@ -74,7 +74,7 @@ describe('Controller Layer', () => {
       sinon.stub(carService, 'update').resolves(car);
 
       req.params = { id: validCarId };
-      req.body = updateCarBody;
+      req.body = updateCarRequest;
 
       await carController.update(req, res);
 

@@ -3,7 +3,7 @@ import { Model } from 'mongoose';
 import * as sinon from 'sinon';
 import CarModel from '../../../models/Car';
 import MotorcycleModel from '../../../models/Motorcycle';
-import { car, cars, newCar, updateCarBody, validCarId } from '../carMocks';
+import { car, cars, newCar, updateCarRequest, validCarId } from '../carMocks';
 import { motorcycle, motorcycles, newMotorcycle, updatemotorcycleBody, validMotorcycleId } from '../motorcycleMocks';
 
 const { expect } = chai;
@@ -46,7 +46,7 @@ describe('Model Layer', () => {
     });
 
     it('Update', async () => {
-      const result = await carModel.update(validCarId, updateCarBody);
+      const result = await carModel.update(validCarId, updateCarRequest);
       expect(result).to.be.deep.equal(car);
     });
   });

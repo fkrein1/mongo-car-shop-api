@@ -1,7 +1,6 @@
 export const validMotorcycleId = '6353077260e08d72c1d0aab8';
 export const invalidmotorcycleId = 'xprot';
 
-
 export const newMotorcycle = {
   model: 'Honda 500',
   year: 2022,
@@ -9,8 +8,14 @@ export const newMotorcycle = {
   buyValue: 40000,
   category: 'Street' as 'Street' | 'Custom' | 'Trail',
   engineCapacity: 500,
-} 
+};
 
+export const newMotorcycleInvalid = {
+  model: 'Honda 500',
+  year: 2022,
+  buyValue: 40000,
+  engineCapacity: 500,
+};
 
 export const motorcycle = {
   model: 'Honda 500',
@@ -46,4 +51,14 @@ export const motorcycles = [
 
 export const updatemotorcycleBody = {
   model: 'Honda 550',
+};
+
+export const updatedMotorcycle = {
+  model: 'Honda 500',
+  year: 2022,
+  color: 'vermelha',
+  buyValue: 40000,
+  category: 'Street' as 'Street' | 'Custom' | 'Trail',
+  engineCapacity: 500,
+  _id: '6353077260e08d72c1d0aab8',
 };
