@@ -6,7 +6,7 @@ API with CRUD functionalities.
   - 90%+ test coverage with Mocha, Chai, and Sinnon
   - Model, Service, Controller and OOP architecture
   
-To run locally clone the repository and run ```npm run compose:up```
+To run locally clone the repository and run ```docker-compose up -d```
 <br>
 
 
