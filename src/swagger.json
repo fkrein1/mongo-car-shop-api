@@ -79,13 +79,13 @@
       }
     },
 
-    "/cars/{cardId}": {
+    "/cars/{carId}": {
       "get": {
         "tags": ["car"],
         "summary": "Get car by ID",
         "parameters": [
           {
-            "name": "cardID",
+            "name": "carId",
             "in": "path",
             "description": "ID of car to return",
             "required": true,
@@ -132,7 +132,7 @@
         "summary": "Update a car",
         "parameters": [
           {
-            "name": "cardID",
+            "name": "carId",
             "in": "path",
             "description": "ID of car to edit",
             "required": true,
@@ -188,7 +188,7 @@
         "summary": "Delete a car",
         "parameters": [
           {
-            "name": "cardID",
+            "name": "carId",
             "in": "path",
             "description": "ID of car to delete",
             "required": true,
@@ -289,7 +289,7 @@
       }
     },
 
-    "/motorcycles/{cardId}": {
+    "/motorcycles/{motorcycleID}": {
       "get": {
         "tags": ["motorcycle"],
         "summary": "Get motorcycle by ID",
