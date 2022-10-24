@@ -11,7 +11,7 @@ class Motorcycle implements IService<IMotorcycle> {
   create(obj: unknown): Promise<IMotorcycle> {
     const parsed = MotorcycleZodSchema.safeParse(obj);
     if (!parsed.success) {
-      throw new AppError(400, parsed.error.message);
+      throw new AppError(400, 'Invalid motorcycle schema');
     }
     return this.model.create(obj as IMotorcycle);
   }

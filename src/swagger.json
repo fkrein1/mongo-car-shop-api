@@ -1,0 +1,496 @@
+{
+  "openapi": "3.0.1",
+  "info": {
+    "title": "Car Shop Documentation",
+    "description": "This is an API for a Car and Motorcycle Shop using MongoDB and Mongoose",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3001/"
+    }
+  ],
+  "tags": [
+    {
+      "name": "car",
+      "description": "Everything about your Car"
+    },
+    {
+      "name": "motorcycle",
+      "description": "Everything about your Motorcycle"
+    }
+  ],
+  "paths": {
+    "/cars": {
+      "get": {
+        "tags": ["car"],
+        "summary": "Get all cars",
+        "responses": {
+          "200": {
+            "description": "sucessful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Car"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["car"],
+        "summary": "Add new car",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Car"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid car schema",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Invalid car schema"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "sucessful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Car"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/cars/{cardId}": {
+      "get": {
+        "tags": ["car"],
+        "summary": "Get car by ID",
+        "parameters": [
+          {
+            "name": "cardID",
+            "in": "path",
+            "description": "ID of car to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Car"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Id must have 24 hexadecimal characters"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Car not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Object not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["car"],
+        "summary": "Update a car",
+        "parameters": [
+          {
+            "name": "cardID",
+            "in": "path",
+            "description": "ID of car to edit",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Car"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "sucessful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Car"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Id must have 24 hexadecimal characters"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Car not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Object not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["car"],
+        "summary": "Delete a car",
+        "parameters": [
+          {
+            "name": "cardID",
+            "in": "path",
+            "description": "ID of car to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Car"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Id must have 24 hexadecimal characters"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Car not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Object not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/motorcycles": {
+      "get": {
+        "tags": ["motorcycle"],
+        "summary": "Get all motorcycles",
+        "responses": {
+          "200": {
+            "description": "sucessful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Motorcycle"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": ["motorcycle"],
+        "summary": "Add new motorcycle",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Motorcycle"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "400": {
+            "description": "Invalid motorcyclecar schema",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Invalid motorcycle schema"
+                }
+              }
+            }
+          },
+          "201": {
+            "description": "sucessful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Motorcycle"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/motorcycles/{cardId}": {
+      "get": {
+        "tags": ["motorcycle"],
+        "summary": "Get motorcycle by ID",
+        "parameters": [
+          {
+            "name": "motorcycleID",
+            "in": "path",
+            "description": "ID of motorcycle to return",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Motorcycle"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Id must have 24 hexadecimal characters"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Motorcycle not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Object not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "put": {
+        "tags": ["motorcycle"],
+        "summary": "Update a motorcycle",
+        "parameters": [
+          {
+            "name": "motorcycleID",
+            "in": "path",
+            "description": "ID of motorcycle to edit",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Motorcycle"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "sucessful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Motorcycle"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Id must have 24 hexadecimal characters"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Motorcycle not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Object not found"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": ["motorcycle"],
+        "summary": "Delete a motorcycle",
+        "parameters": [
+          {
+            "name": "motorcycleID",
+            "in": "path",
+            "description": "ID of motorcycle to delete",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "sucessful operation",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Motorcycle"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Invalid ID supplied",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Id must have 24 hexadecimal characters"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Motorcycle not found",
+            "content": {
+              "application/json": {
+                "example": {
+                  "error": "Object not found"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Car": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "year": {
+            "type": "number"
+          },
+          "color": {
+            "type": "string"
+          },
+          "buyValue": {
+            "type": "number"
+          },
+          "doorsQty": {
+            "type": "number"
+          },
+          "seatsQty": {
+            "type": "number"
+          }
+        }
+      },
+      "Motorcycle": {
+        "type": "object",
+        "properties": {
+          "model": {
+            "type": "string"
+          },
+          "year": {
+            "type": "number"
+          },
+          "color": {
+            "type": "string"
+          },
+          "buyValue": {
+            "type": "number"
+          },
+          "category": {
+            "type": "string",
+            "enum": ["Street", "Custom", "Trail"]
+          },
+          "engineCapacity": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

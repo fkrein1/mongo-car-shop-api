@@ -1,10 +1,20 @@
-# :construction: README em construção ! :construction:
-<!-- Olá, Tryber!
-Esse é apenas um arquivo inicial para o README do seu projeto.
-É essencial que você preencha esse documento por conta própria, ok?
-Não deixe de usar nossas dicas de escrita de README de projetos, e deixe sua criatividade brilhar!
-:warning: IMPORTANTE: você precisa deixar nítido:
-- quais arquivos/pastas foram desenvolvidos por você; 
-- quais arquivos/pastas foram desenvolvidos por outra pessoa estudante;
-- quais arquivos/pastas foram desenvolvidos pela Trybe.
--->
+# Mongo Car Shop API
+
+API with CRUD functionalities.
+
+  - Built with Node, Express, Mongoose, Mongo DB, Typescript, and Docker  
+  - 90%+ test coverage with Mocha, Chai, and Sinnon
+  - Model, Service, Controller and OOP architecture
+  
+To run locally clone the repository and run the following commands:
+<br>
+
+```
+$ npm run compose:up
+
+```
+
+Acess the API documentation on ```http://localhost:3001/api-docs/#/```
+<br>
+<br>
+<img src="./car-shop.png"/></a>

@@ -11,7 +11,7 @@ class Car implements IService<ICar> {
   create(obj: unknown): Promise<ICar> {
     const parsed = CarZodSchema.safeParse(obj);
     if (!parsed.success) {
-      throw new AppError(400, parsed.error.message);
+      throw new AppError(400, 'Invalid car schema');
     }
     return this.model.create(obj as ICar);
   }
